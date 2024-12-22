@@ -76,7 +76,7 @@ const HomePage: React.FC = () => {
       <div className="flex justify-center items-center h-screen">
         <h1 className="font-bold text-7xl">Welcome</h1>
         <h4 ref={subheadingRef} className="font-semibold text-2xl ml-2">
-          to my portfolio
+          to my portfolio.
         </h4>
       </div>
 
