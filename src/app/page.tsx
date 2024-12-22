@@ -86,7 +86,7 @@ const HomePage: React.FC = () => {
       >
         <h2 className="text-3xl font-bold mb-4">About Me</h2>
         <p className="text-lg">
-          Hi, I'm Archisman Dey. I am a full stack developer with 2 years of
+          Hi, I&apos;m Archisman Dey. I am a full stack developer with 2 years of
           experience in building web applications. I specialize in both frontend
           and backend development, and I am passionate about creating efficient
           and scalable solutions.
