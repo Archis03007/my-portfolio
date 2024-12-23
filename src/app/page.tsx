@@ -74,8 +74,8 @@ const HomePage: React.FC = () => {
   return (
     <>
       <div className="flex justify-center items-center h-screen">
-        <h1 className="font-bold text-7xl">Welcome</h1>
-        <h4 ref={subheadingRef} className="font-semibold text-2xl ml-2">
+        <h1 className="font-bold text-7xl heading-xxl">Welcome</h1>
+        <h4 ref={subheadingRef} className="font-semibold text-2xl ml-2 heading-xl">
           to my portfolio.
         </h4>
       </div>
@@ -130,8 +130,8 @@ const HomePage: React.FC = () => {
         <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
         <p className="text-lg">
           If you want to get in touch with me, feel free to send me an email at
-          <span className="text-blue-500"> </span> or connect with me on
-          <span className="text-blue-500"> LinkedIn</span>.
+          <span className="text-blue-500"> archis03007@gmail.com </span> or connect with me on
+          <span className="text-blue-500"> <a href="https://www.linkedin.com/in/archisman-dey/"> LinkedIn </a> </span>.
         </p>
       </div>
     </>
