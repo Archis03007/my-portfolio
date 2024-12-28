@@ -3,7 +3,6 @@
 import React from 'react';
 import { gsap } from 'gsap/gsap-core';
 import { useEffect } from 'react';
-import { on } from 'events';
 
 const Cursor = () => {
 
@@ -11,7 +10,7 @@ const Cursor = () => {
         const cursor = document.getElementById('custom-cursor')
         const links = document.querySelectorAll('a')
         const cursorText = document.querySelector('.cursor-text')
-        const headingxxl = document.querySelector(".heading-xxl");
+        const headingxxl = document.querySelectorAll(".heading-xxl");
         const headingxl = document.querySelector(".heading-xl");
 
         const onMouseMove = (event) => {
@@ -60,10 +59,11 @@ const Cursor = () => {
           link.addEventListener('mouseleave', onMouseLeaveLink)
         })
 
-        if (headingxxl) {
-            headingxxl.addEventListener("mouseenter", onMouseEnterheadingxxl);
-            headingxxl.addEventListener("mouseleave", onMouseLeaveheadingxxl);
-          }
+        headingxxl.forEach((heading) => {
+          heading.addEventListener("mouseenter", onMouseEnterheadingxxl);
+          heading.addEventListener("mouseleave", onMouseLeaveheadingxxl);
+        });
+
         if (headingxl) {
             headingxl.addEventListener("mouseenter", onMouseEnterheadingxl);
             headingxl.addEventListener("mouseleave", onMouseLeaveheadingxl);

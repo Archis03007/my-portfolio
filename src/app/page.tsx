@@ -3,12 +3,16 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import '../app/style.css';
 
 const HomePage: React.FC = () => {
   const subheadingRef = useRef<HTMLHeadingElement>(null);
   const aboutSectionRef = useRef<HTMLDivElement>(null);
   const projectsSectionRef = useRef<HTMLDivElement>(null);
   const contactSectionRef = useRef<HTMLDivElement>(null);
+  const redCircleRef = useRef<HTMLDivElement>(null);
+  const yellowCircleRef = useRef<HTMLDivElement>(null);
+  const purpleCircleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
 
@@ -69,16 +73,92 @@ const HomePage: React.FC = () => {
         },
       }
     );
+
+    gsap.to(redCircleRef.current, {
+      opacity: 1,
+      duration: 7,
+      ease: "power1.out",
+    });
+    gsap.to(yellowCircleRef.current, {
+      opacity: 1,
+      duration: 3,
+      ease: "power3.out",
+    });
+    gsap.to(purpleCircleRef.current, {
+      opacity: 1,
+      duration: 5,
+      ease: "power3.out",
+    });
+
+    // Scroll-triggered animation for the red circle
+    gsap.to(redCircleRef.current, {
+      y: 500,
+      x:-300,
+      ease: "power1.out",
+      scrollTrigger: {
+      trigger: redCircleRef.current,
+      start: "top 20%",
+      end: "bottom 20%",
+      // scrub: true,
+      },
+    });
+
+    gsap.to(purpleCircleRef.current, {
+      y: 600,
+      x:-300,
+      ease: "back.inOut",
+      scrollTrigger: {
+      trigger: redCircleRef.current,
+      start: "top 20%",
+      end: "bottom 20%",
+      // scrub: true,
+      },
+    });
+
   }, []);
 
   return (
     <>
-      <div className="flex justify-center items-center h-screen">
-        <h1 className="font-bold text-7xl heading-xxl">Welcome</h1>
-        <h4 ref={subheadingRef} className="font-semibold text-2xl ml-2 heading-xl">
-          to my portfolio.
-        </h4>
+      <div>
+
+      <div className="bg-circle-red" ref={redCircleRef}>
+        <svg height="100" width="100">
+          <circle cx="50" cy="50" r="40" fill="red" />
+        </svg>
       </div>
+      <div className="bg-circle-yellow" ref={yellowCircleRef}>
+        <svg height="100" width="100">
+          <circle cx="50" cy="50" r="40" fill="yellow" />
+        </svg>
+      </div>
+      <div className="bg-circle-purple" ref={purpleCircleRef}>
+        <svg height="100" width="100">
+          <circle cx="50" cy="50" r="40" fill="purple" />
+        </svg>
+      </div>
+
+        <div className="flex justify-center items-center h-screen hero-bg">
+          <h1 className="font-bold text-7xl heading-xxl">Welcome.</h1>
+          <h4 ref={subheadingRef} className="font-semibold text-2xl ml-2 heading-xl">
+            {/* to my portfolio. */}
+          </h4>
+        </div>
+      </div>
+
+      <div className="flex justify-center items-center h-screen px-10 hero-bg">
+        <h1 className="font-bold text-8xl heading-xxl">
+          Hiding
+        </h1>
+        <div className="text-center heading-xxl">
+          <span className="block font-extrabold text-gray-200 text-4xl px-5">bad codes</span>
+          {/* <span className="block font-extrabold text-lime-500 text-3xl px-5">with good UI</span> */}
+        </div>
+        <h1 className="font-bold text-8xl heading-xxl">
+          since 2019
+        </h1>
+      </div>
+
+
 
       <div
         ref={aboutSectionRef}

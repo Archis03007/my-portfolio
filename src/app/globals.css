@@ -44,3 +44,26 @@ body {
   letter-spacing: 1px;
   display: none;
 }
+
+/* Mask Effect */
+.mask-text {
+  position: relative;
+  color: transparent;
+  overflow: hidden;
+}
+
+.masked-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  -webkit-mask: radial-gradient(circle, white 50%, transparent 51%);
+  mask: radial-gradient(circle, white 50%, transparent 51%);
+  transition: -webkit-mask-position 0.1s ease, mask-position 0.1s ease;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: -1000px -1000px;
+  mask-position: -1000px -1000px;
+}
