@@ -117,6 +117,19 @@ const HomePage: React.FC = () => {
       },
     });
 
+    gsap.to(purpleCircleRef.current, {
+      y: 1050,
+      x: -750,
+      ease: "expo.inOut",
+      duration: 2,
+      scrollTrigger: {
+        trigger: aboutSectionRef.current,
+        start: "top 40%",
+        end: "bottom 20%",
+        // scrub: true,
+      },
+    });
+
   }, []);
 
   return (
@@ -159,18 +172,22 @@ const HomePage: React.FC = () => {
         </h1>
       </div>
 
+      <div className="h-screen px-5 sm:px-10 hero-bg">
+        <h1 className="font-bold text-5xl sm:text-7xl lg:text-8xl">About me <span className="text-7 xl">🤔</span> </h1>
+        <div ref={aboutSectionRef}>
+          <p className="text-xl sm:text-2xl py-8">
+            Hi, I&apos;m Archisman Dey—a full-stack developer and problem-solving enthusiast! Over the past 2 years, I&apos;ve been crafting web
+             applications that are as efficient as they are impactful. From frontend finesse to backend brilliance, I specialize in creating
+              seamless digital experiences.
+          </p>
+          <p className="text-xl sm:text-2xl">
+          Along with web development, I am deeply interested in game development and aspire to create engaging and innovative games. 
+          I also have a keen interest in artificial intelligence and machine learning and enjoy exploring how these technologies can be 
+          leveraged to solve complex problems and enhance user experiences.
+          </p>
 
-      <div
-        ref={aboutSectionRef}
-        className="about-section mt-10 p-5 sm:p-8 bg-gray-100 rounded-lg shadow-md"
-      >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-4">About Me</h2>
-        <p className="text-base sm:text-lg">
-          Hi, I&apos;m Archisman Dey. I am a full stack developer with 2 years of
-          experience in building web applications. I specialize in both frontend
-          and backend development, and I am passionate about creating efficient
-          and scalable solutions.
-        </p>
+        </div>
+
       </div>
 
       <div
