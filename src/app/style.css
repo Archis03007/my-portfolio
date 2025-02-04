@@ -26,3 +26,54 @@ z-index: 999;
     left: 60vw;
     scale: 1.5;
 }
+
+
+/* Ensure the card container is positioned relative and its overflow is hidden */
+.card {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* The fill effect using the ::after pseudo-element */
+  .card::after {
+    content: "";
+    position: absolute;
+    top: var(--y, 50%);
+    left: var(--x, 50%);
+    width: 100px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 1); /* Adjust the fill color as needed */
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.7s ease-out;
+    pointer-events: none;
+    z-index: 10; /* Sits above the base content */
+  }
+  
+  /* On hover, the fill effect expands */
+  .card:hover::after {
+    transform: translate(-50%, -50%) scale(20);
+  }
+  
+  /* The reveal text element that will show extra information */
+  .card .reveal {
+    position: absolute;
+    inset: 0; /* Fills the entire card */
+    z-index: 20; /* Sits above the fill effect */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease 0.3s; /* Delayed so it appears after the fill */
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  /* On hover, reveal the extra information */
+  .card:hover .reveal {
+    opacity: 1;
+  }
+  
