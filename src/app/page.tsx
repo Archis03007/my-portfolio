@@ -4,11 +4,12 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import '../app/style.css';
+import Skills from "./skills";
 
 const HomePage: React.FC = () => {
   const subheadingRef = useRef<HTMLHeadingElement>(null);
   const aboutSectionRef = useRef<HTMLDivElement>(null);
-  // const projectsSectionRef = useRef<HTMLDivElement>(null);
+  const projectsSectionRef = useRef<HTMLDivElement>(null);
   const contactSectionRef = useRef<HTMLDivElement>(null);
   const redCircleRef = useRef<HTMLDivElement>(null);
   const yellowCircleRef = useRef<HTMLDivElement>(null);
@@ -43,20 +44,20 @@ const HomePage: React.FC = () => {
     );
 
     // Scroll-triggered animation for the projects section
-    // gsap.fromTo(
-    //   projectsSectionRef.current,
-    //   { opacity: 0, x: -100 },
-    //   {
-    //     opacity: 1,
-    //     x: 0,
-    //     duration: 1.5,
-    //     ease: "power3.out",
-    //     scrollTrigger: {
-    //       trigger: projectsSectionRef.current,
-    //       start: "top 80%",
-    //     },
-    //   }
-    // );
+    gsap.fromTo(
+      projectsSectionRef.current,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: projectsSectionRef.current,
+          start: "top 80%",
+        },
+      }
+    );
 
     // Scroll-triggered animation for the contact section
     gsap.fromTo(
@@ -172,7 +173,7 @@ const HomePage: React.FC = () => {
         </h1>
       </div>
 
-      <div className="h-screen px-5 sm:px-10 hero-bg">
+      <div className="h-auto px-5 sm:px-10 hero-bg">
         <h1 className="font-bold text-5xl sm:text-7xl lg:text-8xl">About me <span className="text-7 xl">🤔</span> </h1>
         <div ref={aboutSectionRef}>
           <p className="text-xl sm:text-2xl py-8">
@@ -190,65 +191,65 @@ const HomePage: React.FC = () => {
 
       </div>
 
-
-<div className="projects-section p-5 sm:p-8 hero-bg">
-  <h1 className="font-bold text-5xl mb-5 sm:text-7xl lg:text-8xl">Projects</h1>
-  <div className="cards flex space-x-4">
-    <div
-      className="card relative flex-1"
-      onMouseMove={(e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        e.currentTarget.style.setProperty("--x", `${x}px`);
-        e.currentTarget.style.setProperty("--y", `${y}px`);
-      }}
-    >
-      <img
-        className="w-full h-full object-cover rounded-lg"
-        src="https://images.unsplash.com/photo-1684262483735-1101bcb10f0d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3"
-        alt="Random from Unsplash"
-      />
-      <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center rounded-lg">
-        <h2 className="text-xl font-bold text-white mb-2">Card 1</h2>
-        <p className="text-white">This is the first card.</p>
-      </div>
-      {/* Reveal content (hidden by default) */}
-      <div className="reveal">
-        <h2 className="text-xl font-bold">More Info</h2>
-        <p>Extra details about Card 1 are revealed here.</p>
-      </div>
-    </div>
-
-    <div
-      className="card relative flex-1"
-      onMouseMove={(e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        e.currentTarget.style.setProperty("--x", `${x}px`);
-        e.currentTarget.style.setProperty("--y", `${y}px`);
-      }}
-    >
-      <img
-        className="w-full h-full object-cover rounded-lg"
-        src="https://images.unsplash.com/photo-1738168601626-00a692f3638d?q=80&w=1375&auto=format&fit=crop&ixlib=rb-4.0.3"
-        alt="Random from Unsplash"
-      />
-      <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center rounded-lg">
-        <h2 className="text-xl font-bold text-white mb-2">Card 2</h2>
-        <p className="text-white">This is the second card.</p>
-      </div>
-      {/* Reveal content (hidden by default) */}
-      <div className="reveal">
-        <h2 className="text-xl font-bold">More Info</h2>
-        <p>Extra details about Card 2 are revealed here.</p>
-      </div>
-    </div>
-  </div>
-</div>
+      <Skills />
 
 
+      <div className="projects-section p-5 sm:p-8 hero-bg">
+        <h1 className="font-bold text-5xl mb-5 sm:text-7xl lg:text-8xl">Projects</h1>
+        <div ref={projectsSectionRef} className="cards flex space-x-4">
+          <div
+            className="card relative flex-1"
+            onMouseMove={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              e.currentTarget.style.setProperty("--x", `${x}px`);
+              e.currentTarget.style.setProperty("--y", `${y}px`);
+            }}
+          >
+            <img
+              className="w-full h-full object-cover rounded-lg"
+              src="https://images.unsplash.com/photo-1684262483735-1101bcb10f0d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3"
+              alt="Random from Unsplash"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center rounded-lg">
+              <h2 className="text-xl font-bold text-white mb-2">Card 1</h2>
+              <p className="text-white">This is the first card.</p>
+            </div>
+            {/* Reveal content (hidden by default) */}
+            <div className="reveal">
+              <h2 className="text-xl font-bold">More Info</h2>
+              <p>Extra details about Card 1 are revealed here.</p>
+            </div>
+          </div>
+
+          <div
+            className="card relative flex-1"
+            onMouseMove={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              e.currentTarget.style.setProperty("--x", `${x}px`);
+              e.currentTarget.style.setProperty("--y", `${y}px`);
+            }}
+          >
+            <img
+              className="w-full h-full object-cover rounded-lg"
+              src="https://images.unsplash.com/photo-1738168601626-00a692f3638d?q=80&w=1375&auto=format&fit=crop&ixlib=rb-4.0.3"
+              alt="Random from Unsplash"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center rounded-lg">
+              <h2 className="text-xl font-bold text-white mb-2">Card 2</h2>
+              <p className="text-white">This is the second card.</p>
+            </div>
+            {/* Reveal content (hidden by default) */}
+            <div className="reveal">
+              <h2 className="text-xl font-bold">More Info</h2>
+              <p>Extra details about Card 2 are revealed here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div
         ref={contactSectionRef}
