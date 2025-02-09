@@ -249,7 +249,7 @@ const HomePage: React.FC = () => {
         <h1 className="font-bold text-5xl mb-5 sm:text-7xl lg:text-8xl">Contact Me </h1>
         <p className="text-xl sm:text-2xl">
           Want to work together or just chat? Feel free to reach out to me at&nbsp;
-          <a href="mailto:your.email@example.com" className="underline text-orange-50">
+          <a href="mailto:your.email@example.com" className="underline text-orange-50 cursor-none">
             archis03007@gmail.com
           </a>
           </p>
