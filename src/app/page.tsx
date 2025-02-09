@@ -232,6 +232,13 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </div>
+
+<div className="flex justify-center p-10">
+  <button className="bg-transparent border border-gray-500 rounded px-4 py-2 cursor-none hover:bg-gray-500">
+    View All Projects
+  </button>
+</div>
+
       </div>
 
       <div
