@@ -194,7 +194,7 @@ const HomePage: React.FC = () => {
       <Skills />
 
 
-      <div className="projects-section p-5 sm:p-8 hero-bg">
+      <div className="projects-section p-5 hero-bg">
         <h1 className="font-bold text-5xl mb-5 sm:text-7xl lg:text-8xl">Projects</h1>
         <div ref={projectsSectionRef} className="cards flex space-x-4">
           <div
@@ -252,15 +252,19 @@ const HomePage: React.FC = () => {
       </div>
 
       <div
-        ref={contactSectionRef}
-        className="contact-section mt-10 p-5 sm:p-8 bg-gray-100 rounded-lg shadow-md"
+        // ref={contactSectionRef}
+        className="contact-section p-5 sm:p-8 bg-black text-white hero-bg"
       >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-4">Contact Me</h2>
-        <p className="text-base sm:text-lg">
-          If you want to get in touch with me, feel free to send me an email at
-          <span className="text-blue-500"> archis03007@gmail.com </span> or connect with me on
-          <span className="text-blue-500"> <a href="https://www.linkedin.com/in/archisman-dey/"> LinkedIn </a> </span>.
-        </p>
+        
+        
+        <h1 className="font-bold text-5xl mb-5 sm:text-7xl lg:text-8xl">Contact Me </h1>
+        <p className="text-xl sm:text-2xl">
+          Want to work together or just chat? Feel free to reach out to me at&nbsp;
+          <a href="mailto:your.email@example.com" className="underline text-orange-50">
+            archis03007@gmail.com
+          </a>
+          </p>
+
       </div>
     </>
   );
