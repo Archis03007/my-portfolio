@@ -10,7 +10,6 @@ const HomePage: React.FC = () => {
   const subheadingRef = useRef<HTMLHeadingElement>(null);
   const aboutSectionRef = useRef<HTMLDivElement>(null);
   const projectsSectionRef = useRef<HTMLDivElement>(null);
-  const contactSectionRef = useRef<HTMLDivElement>(null);
   const redCircleRef = useRef<HTMLDivElement>(null);
   const yellowCircleRef = useRef<HTMLDivElement>(null);
   const purpleCircleRef = useRef<HTMLDivElement>(null);
@@ -55,22 +54,6 @@ const HomePage: React.FC = () => {
         scrollTrigger: {
           trigger: projectsSectionRef.current,
           start: "top 80%",
-        },
-      }
-    );
-
-    // Scroll-triggered animation for the contact section
-    gsap.fromTo(
-      contactSectionRef.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: contactSectionRef.current,
-          start: "top 90%",
         },
       }
     );
@@ -252,8 +235,7 @@ const HomePage: React.FC = () => {
       </div>
 
       <div
-        // ref={contactSectionRef}
-        className="contact-section p-5 sm:p-8 bg-black text-white hero-bg"
+        className="contact-section p-5 sm:p-8 bg-zinc-900 text-white"
       >
         
         
