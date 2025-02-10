@@ -101,10 +101,5 @@
   background-image: -webkit-linear-gradient(180deg,
   rgba(0, 0, 0, 0) 0%,
   rgba(0, 102, 255, 30%) 60%,
-  rgb(0, 102, 255) 100%)
-}
-
-/* Change thumb color on hover */
-::-webkit-scrollbar-thumb:hover {
-  background-color: blue;
+  rgb(0, 166, 255) 100%)
 }
